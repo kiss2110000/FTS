@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <tool name="submittodeadline" label="Deadline" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import os,hou,time
+
+
+def getCmdValue(cmd_code):
+    deadline_path='"'+os.path.join(os.getenv("DEADLINE_PATH"),"deadlinecommand.exe")+'"'
+    return os.popen(deadline_path+" "+cmd_code).read()
+
+def setValue(flag,parm_name,parm_value):
+    if not flag: #0
+        kwargs["node"].parm(parm_name).set(parm_value)
+    else: #1
+        hou.pwd().parm(parm_name).set(parm_value)
+
+def getValue(flag,parm_name):
+    if not flag: #0
+        return kwargs["node"].evalParm(parm_name)
+    else: #1
+        return hou.pwd().evalParm(parm_name)
+
+def getValue2(parm_name,node):
+        return node.evalParm(parm_name)
+
+def getBlackList():
+    result=[]
+    slaves=" ".join(getCmdValue("slaves").splitlines())
+    for slave in slaves.split(" "):
+        result.append(slave)
+        result.append(slave)
+    return result
+    
+def getPoolList():
+    result=[]
+    pools=" ".join(getCmdValue("pools").splitlines())
+    for pool in pools.split(" "):
+        result.append(pool)
+        result.append(pool)
+    return result
+
+def getGroupList():
+    result=[]
+    groups=" ".join(getCmdValue("groups").splitlines())
+    for group in groups.split(" "):
+        result.append(group)
+        result.append(group)
+    return result 
+
+def generateJobInfoFile(filename,infDict):   
+    outJobInfoFile=open(filename, 'w')
+    for key in infDict:
+        outJobInfoFile.write(key+"="+str(infDict[key])+"\n")  
+    outJobInfoFile.close()
+    return filename
+    
+def generatePluginInfoFile(filename,infDict): 
+    outPluginInfoFile=open(filename, 'w')
+    for key in infDict:
+        outPluginInfoFile.write(key+"="+str(infDict[key])+"\n")
+    outPluginInfoFile.close()
+    return filename
+
+def runDeadline(jobInfoFile, pluginInfoFile):
+     
+    result = 'fail'
+    jobid = ''
+    deadline_path='"'+os.path.join(os.getenv("DEADLINE_PATH"),"deadlinecommand.exe")+'"'
+    print deadline_path
+    try:
+        process = os.popen(' '.join([deadline_path, jobInfoFile, pluginInfoFile]))
+          
+        out = process.read()
+        print out
+        for l in out.splitlines():
+            if (l.split('=')[0] == 'Result' and  l.split('=')[1] == 'Success'):
+                result = 'ok'
+            if (l.split('=')[0] == 'JobID'):
+                jobid = l.split('=')[1]
+    except:
+        pass
+           
+    os.remove(jobInfoFile)
+    os.remove(pluginInfoFile)
+   
+    return [result, jobid]
+    
+def sendHoudiniJob(node):
+        current_file = hou.hipFile
+            
+        (filename,fileext)=os.path.splitext(current_file.basename())
+        filepath=os.path.dirname(current_file.path())
+        
+        temp_file_path = 'C:\\temp'                       
+        jobinfo_path=os.path.join(temp_file_path,filename+"_jobinfo.job")
+        jobInfDict={}
+        jobInfDict["Plugin"]="Houdini"
+        jobInfDict["Name"]=filename+" "+node.name()
+        jobInfDict["Comment"]=""
+        jobInfDict["Department"]=""
+        jobInfDict["Pool"]="none"
+        jobInfDict["SecondaryPool"]="none"
+        jobInfDict["Group"]="none"
+        jobInfDict["Priority"]=50
+        jobInfDict["ConcurrentTasks"] = 1
+        jobInfDict["MachineLimit"]=0
+        jobInfDict["Blacklist"]=""
+        jobInfDict["Frames"]=str(int(getValue2("f1",node)))+"-"+str(int(getValue2("f2",node)))+"x"+str(int(getValue2("f3",node)))
+        jobInfDict["ChunkSize"]=10
+        jobInfDict["OutputDirectory0"]=os.path.dirname(getValue2("RS_outputFileNamePrefix",node))
+        jobInfoFile = generateJobInfoFile(jobinfo_path,jobInfDict)
+        
+        
+        plugininfo_path=os.path.join(temp_file_path,filename+"_plugininfo.job")
+        plugInfDict={}
+        
+        plugInfDict["SceneFile"]=hou.hipFile.path()
+        plugInfDict["OutputDriver"]=node.path()
+        plugInfDict["Version"]=16.5
+        plugInfDict["Build"]="None"
+        
+        pluginInfoFile = generatePluginInfoFile(plugininfo_path,plugInfDict)
+        
+        result, jobID = runDeadline(jobInfoFile, pluginInfoFile)
+
+def sendMultHoudiniJob():
+    current_file = hou.hipFile   
+    save_or_not = hou.ui.displayMessage('Save you file before submit?',('YES','NO'))
+    if save_or_not == 0:
+        current_file.save()
+
+    selected_rop = []
+    for node in hou.selectedNodes():
+        if node.type().name() == "Redshift_ROP":
+            selected_rop.append(node)
+#        elif node.type().name() == "ifd":
+#            selected_rop.append(node)
+
+    input_nodes = selected_rop
+
+    if input_nodes == None:
+        hou.ui.displayMessage('æ²¡æå¯æ¸²æèç¹!ååå»ºèç¹?')
+#    elif len(input_nodes.inputs()) == 0:
+#        hou.ui.displayMessage('æ²¡æå¯æ¸²æèç¹!ååå»ºèç¹?')
+    else:
+        for node in input_nodes:
+            sendHoudiniJob(node)
+        hou.ui.displayMessage('åéæå!')
+
+sendMultHoudiniJob()]]></script>
+  </tool>
+</shelfDocument>
