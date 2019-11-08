@@ -1,0 +1,6 @@
+node = kwargs['node']
+node.setColor(hou.Color((0.6, 0.8, 1)))
+node.setUserData("nodeshape","trapezoid_down")
+node.setName("FTs_fountain",unique_name=True)
+
+    

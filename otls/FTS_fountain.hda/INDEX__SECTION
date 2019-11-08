@@ -1,0 +1,14 @@
+Operator:     SJX_FTS::fountain::1.0
+Label:        FTS Fountain
+Path:         oplib:/SJX_FTS::Sop/fountain::1.0?SJX_FTS::Sop/fountain::1.0
+Icon:         SHELF_suctionfluid
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Nov  8 17:08:25 2019
+

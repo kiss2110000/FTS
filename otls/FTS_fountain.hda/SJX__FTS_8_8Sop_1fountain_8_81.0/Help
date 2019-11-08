@@ -1,0 +1,31 @@
+= FST fountain TD =
+== 属性 ==
+
+= 基础属性 =
+
+- i@ft_id：为每个点分配一个编号。
+- v@ft_P：喷头发射点的初始坐标位置。
+- f@ft_gravity：喷泉模拟的重力。
+- i@cluster：点的分组属性，默认是ptnum属性。
+- v@up：控制喷泉的朝向。
+- v@N：控制喷头某个轴向旋转的。
+    
+- f@emit：发射喷泉粒子的开关。
+- f@emitradius：发射器的半径大小。
+- v@emitrot：发射器的旋转。
+- f@birthrate：粒子发射率，每个喷泉每秒发射多少粒子。
+- f@speed：发射粒子的速度值。
+- f@life：粒子的生命值。
+- f@lifevar：
+
+= 高级属性 =
+
+- f@airrest：
+- f@airnoise：
+
+= 拓展属性 =
+
+- i@emitnum：
+- f@emitdis：
+- f@emitper：
+- i@emitdir：

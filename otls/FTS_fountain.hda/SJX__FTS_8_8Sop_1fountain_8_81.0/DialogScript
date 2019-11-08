@@ -1,0 +1,281 @@
+# Dialog script for SJX_FTS::fountain::1.0 automatically generated
+
+{
+    name	SJX_FTS::fountain::1.0
+    script	fountain_types
+    label	"FTS Fountain"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder0"
+        label   "Fountain"
+
+        parm {
+            name    "type"
+            label   "Name"
+            type    ordinal
+            default { "TD" }
+            menu {
+                "WF"    "WF"
+                "EF"    "EF"
+                "TD"    "TD"
+                "GE"    "GE"
+                "FN"    "FN"
+                "OX"    "OX"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ft_range"
+            label   "Range Start/End"
+            type    intvector2
+            size    2
+            default { "1" "500" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupsimple {
+        name    "td"
+        label   "Base Attribute"
+
+        parm {
+            name    "emit"
+            label   "Emitter"
+            type    integer
+            default { "1" }
+            range   { 0 240 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "life"
+            label   "Life"
+            type    float
+            default { "100" }
+            range   { 0 100 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "rotz"
+            label   "RotZ"
+            type    float
+            default { "sin($FF*5)*30" }
+            range   { -90 90 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action_icon" "BUTTONS_gear" }
+        }
+        parm {
+            name    "roty"
+            label   "RotY"
+            type    float
+            default { "0" }
+            range   { -360 360 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "rotx"
+            label   "RotX"
+            type    float
+            default { "0" }
+            range   { -360 360 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "speed"
+            label   "Speed"
+            type    float
+            default { "25" }
+            range   { 0 90 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    parm {
+        name    "advanced"
+        label   "Advanced option"
+        type    toggle
+        default { "0" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "Advanced option"
+        hidewhentab "{ advanced == 0 }"
+
+        parm {
+            name    "emitype"
+            label   "Emit Type/vel/Dir"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "Face Up Center (GE)"
+                "1" "Line Up Center (WF)"
+                "2" "Face Up Normal (TD)"
+                "3" "Line Center Normal (FN)"
+            }
+            range   { 0 10 }
+        }
+        parm {
+            name    "displace"
+            label   "Displacement Radius"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "birthrate"
+            label   "Birth Rate"
+            type    float
+            default { "3000" }
+            range   { 0 10000 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "emitterradius"
+            label   "Emitter Radius"
+            type    float
+            default { "0.025" }
+            range   { 0 0.1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "lifevariance"
+            label   "Life variance"
+            type    float
+            default { "5" }
+            range   { 0 5 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "speedvariance"
+            label   "Speed variance"
+            type    vector
+            size    3
+            default { "0.5" "0.5" "0.5" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "gravity"
+            label   "Gravity"
+            type    float
+            default { "-9.80665" }
+            range   { -10 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "emitadv"
+            label   "Enable Emit Advanced Attribute"
+            type    toggle
+            default { "0" }
+        }
+        groupsimple {
+            name    "folder4"
+            label   "Emit Advanced"
+            hidewhentab "{ emitadv == 0 }"
+
+            parm {
+                name    "num"
+                label   "Number"
+                type    integer
+                default { "8" }
+                range   { 1! 10 }
+            }
+            parm {
+                name    "dis"
+                label   "Distance"
+                type    float
+                default { "0.3" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "per"
+                label   "Percent"
+                type    float
+                default { "0.75" }
+                range   { 0! 1! }
+            }
+            parm {
+                name    "dir"
+                label   "dir"
+                type    integer
+                default { "0" }
+                range   { 0! 2! }
+            }
+        }
+
+        parm {
+            name    "air"
+            label   "Enable Air Attribute"
+            type    toggle
+            default { "0" }
+        }
+        groupsimple {
+            name    "folder3"
+            label   "Air"
+            hidewhentab "{ air == 0 }"
+
+            parm {
+                name    "airrest"
+                label   "Air Resistance"
+                type    float
+                default { "0" }
+                disablewhen "{ air == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "airnoise"
+                label   "Air Noise"
+                type    float
+                default { "0" }
+                disablewhen "{ air == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    parm {
+        name    "guide"
+        label   "Visuelize Guide"
+        type    toggle
+        default { "0" }
+    }
+    groupsimple {
+        name    "folder2"
+        label   "Visuelize "
+        hidewhentab "{ guide == 0 }"
+
+        parm {
+            name    "point"
+            label   "Max Life"
+            type    integer
+            default { "50" }
+            range   { 1! 100 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "level"
+            label   "level"
+            type    integer
+            default { "1" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    parm {
+        name    "cn"
+        label   "Create Normal"
+        type    toggle
+        default { "1" }
+    }
+}
