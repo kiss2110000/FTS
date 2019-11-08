@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.439398 8.01461
+position 0.262981 3.07608
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -47,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1573199123
-  modify 1573204124
+  create 1573208301
+  modify 1573209658
   author Administrator@SJX
   access 0777
 }
@@ -564,7 +564,7 @@ birthrate	[ 0	locks=0 ]	(	[ birthrate	3000 ] 	)
 life	[ 0	locks=0 ]	(	[ life	100 ] 	)
 lifevar	[ 0	locks=0 ]	(	[ lifevar	5 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
-rot	[ 0	locks=0 ]	(	[ rotx	0 ] 	[ roty	0 ] 	[ rotz	-15.000000000000004 ] 	)
+rot	[ 0	locks=0 ]	(	[ rotx	0 ] 	[ roty	0 ] 	[ rotz	-28.190778623577252 ] 	)
 speed	[ 0	locks=0 ]	(	[ speed	25 ] 	)
 speedvar	[ 0	locks=0 ]	(	[ speedvarx	0.5 ] 	[ speedvary	0.5 ] 	[ speedvarz	0.5 ] 	)
 sepparm4	[ 0	locks=0 ]	(	)
@@ -1638,7 +1638,7 @@ inputs
 stat
 {
   create 1514862205
-  modify 1573203942
+  modify 1573209845
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -1668,7 +1668,6 @@ i@cluster = @ptnum;
 v@up={0,1,0};
 // 记录初始位置 坐标
 v@ft_P = @P;
-@rot = {0,90,0};
 
 
 "	)
