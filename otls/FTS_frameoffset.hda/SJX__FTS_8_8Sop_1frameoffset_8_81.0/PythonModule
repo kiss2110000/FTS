@@ -1,0 +1,85 @@
+def visualizeView(selNode):
+    '''在 Motion FX View 面板中显示通道'''
+    lock=hou.node("chopnet1/Out_Lock")
+
+    # 从现有的窗口中，查找Motion FX View窗口
+    view = None
+    desk = hou.ui.paneTabs()
+    for i in desk:
+        if i.type()==hou.paneTabType.ChannelViewer:
+            i.setCurrentNode(lock)
+            view = i
+    if view is None:
+        hou.ui.displayMessage('Current desktop has no "Motion FX View"!')
+    # 设置当前节点为选择节点
+    selNode.setCurrent(True,clear_all_selected=True)
+
+
+def setEmitRange(node):
+    '''设置此节点发射的总范围'''
+    # 获取输入端的节点
+    inputnode = node.inputs()
+    if len(inputnode)!=0:
+        input = inputnode[0]
+        ingeo = input.geometry()
+        inpoint = ingeo.points()[0]
+        
+        se = inpoint.floatListAttribValue("ft_se")
+        node.setParms({"rangex":se[0], "rangey":se[1]})
+
+def setEmitRange(node):
+    '''设置此节点发射的总范围'''
+    try: 
+        node.parm("ft_rangex").expression()
+        node.parm("ft_rangex").deleteAllKeyframes()
+        node.parm("ft_rangey").deleteAllKeyframes()
+    except:
+        # 获取输入端的节点,如果没有就pass
+        inputnode = node.inputs()
+        
+        # 向上级节点中，循环查找foutain节点
+        ft_node = None
+        while len(inputnode)!=0:
+            input = inputnode[0]
+            if input.type().name()=="SJX_FTS::fountain::1.0":
+                ft_node = input
+                break
+            inputnode = input.inputs()
+    
+        # 找到fountain节点后，设置曲线的起始时间
+        if ft_node!=None:
+            start = 'ch("../'+ ft_node.name() +'/ft_rangex")'
+            end =   'ch("../'+ ft_node.name() +'/ft_rangey")'
+            #print start
+            node.setParmExpressions({"ft_rangex":start, "ft_rangey":end})
+        
+        
+def setOffsetLast(node):
+    '''设置最大尾帧的为止'''
+    # 获取参考，设置最后一帧
+    ref = node.evalParm("ref")
+    node.setParms({"last":ref})
+    #print "OK"
+        
+
+def setLock(node):
+    '''锁定/解锁曲线'''
+    lock = hou.node("chopnet1/Out_Lock")
+    
+    if lock.isGenericFlagSet(hou.nodeFlag.Lock):
+        # 解锁
+        lock.setGenericFlag(hou.nodeFlag.Lock,False)
+        node.setColor(hou.Color((0.0, 0.588, 0.519)))
+    else:
+        # 上锁
+        lock.setGenericFlag(hou.nodeFlag.Lock,True)
+        node.setColor(hou.Color((0.765, 1, 0.576)))
+        
+    
+
+    
+    
+
+        
+
+    
