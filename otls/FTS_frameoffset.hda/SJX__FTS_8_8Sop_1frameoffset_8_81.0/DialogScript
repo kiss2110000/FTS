@@ -1,0 +1,279 @@
+# Dialog script for SJX_FTS::frameoffset::1.0 automatically generated
+
+{
+    name	SJX_FTS::frameoffset::1.0
+    script	fountain_frameoffset
+    label	"FTS FrameOffset"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    inputlabel	5	"Sub-Network Input #5"
+    inputlabel	6	"Sub-Network Input #6"
+    inputlabel	7	"Sub-Network Input #7"
+    inputlabel	8	"Sub-Network Input #8"
+    inputlabel	9	"Sub-Network Input #9"
+    inputlabel	10	"Sub-Network Input #10"
+
+    groupsimple {
+        name    "folder0"
+        label   "Fountain Range"
+        disablewhentab "{ range_enable == 1 }"
+
+        parm {
+            name    "parm3"
+            label   "Set Exp"
+            type    button
+            nolabel
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setEmitRange(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "ft_range"
+            label   "Start/End"
+            type    intvector2
+            size    2
+            default { "1" "100" }
+            range   { 0 500 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    parm {
+        name    "vis"
+        label   "Visualize In Motion FX View"
+        type    button
+        nolabel
+        joinnext
+        default { "0" }
+        parmtag { "script_callback" "kwargs[\"node\"].hdaModule().visualizeView(kwargs[\"node\"])" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "parm2"
+        label   "LOCK Curve"
+        type    button
+        nolabel
+        joinnext
+        default { "0" }
+        parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setLock(kwargs[\"node\"])" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "stashinput"
+        label   "Stash Input"
+        type    button
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder0__"
+        label   "Frame Offset"
+
+        parm {
+            name    "frameint"
+            label   "Freme Offset"
+            type    integer
+            default { "0" }
+            hidewhen "{ integerframe == 0 }"
+            range   { 0 10 }
+            parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setOffsetLast(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "frame"
+            label   "Freme Offset"
+            type    float
+            default { "0" }
+            hidewhen "{ integerframe == 1 }"
+            range   { 0 10 }
+            parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setOffsetLast(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "integerframe"
+            label   "Integer Frames"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "range_enable"
+            label   "Enable Local Range"
+            type    toggle
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "export_disable" "1" }
+            parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setEmitRange(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Local "
+            disablewhentab "{ range_enable == 0 }"
+
+            parm {
+                name    "loc"
+                label   "Start/End"
+                type    intvector2
+                size    2
+                default { "1" "100" }
+                disablewhen "{ range_enable == 0 }"
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setOffsetLast(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enablestart"
+                label   "Label"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                disablewhen "{ range_enable == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "startrange"
+                label   "Point 1"
+                type    integer
+                default { "25" }
+                disablewhen "{ enablestart == 0 } { range_enable == 0 }"
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "enableend"
+                label   "Label"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                disablewhen "{ range_enable == 0 }"
+            }
+            parm {
+                name    "endrange"
+                label   "Point 2"
+                type    integer
+                default { "75" }
+                disablewhen "{ enableend == 0 }"
+                range   { 0 500 }
+            }
+            groupsimple {
+                name    "folder1"
+                label   "Expand Last Range"
+
+                parm {
+                    name    "ref"
+                    label   "Last Reference"
+                    type    integer
+                    default { "ch(\"locy\") +nuniquevals(\"Out_cluster/\", D_POINT, \"cluster\")*ch(\"frameint\")" }
+                    disablewhen "{ range_enable == 1 }"
+                    range   { 0 10 }
+                }
+                parm {
+                    name    "parm"
+                    label   "Update Last"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "kwargs[\"node\"].hdaModule().setOffsetLast(kwargs[\"node\"])" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "last"
+                    label   "Last"
+                    type    integer
+                    default { "0" }
+                    range   { 0 10 }
+                }
+            }
+
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder3"
+        label   "Attribute"
+
+        parm {
+            name    "organize"
+            label   "Organize by Attribute"
+            type    string
+            default { "cluster" }
+            disablewhen "{ ninputs() > 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "attribute"
+            label   "Attribute Scope"
+            type    string
+            default { "emit life emitrot speed" }
+            menureplace {
+                [ "try:" ]
+                [ "    input = kwargs['node'].inputs()[0]" ]
+                [ "    geo = input.geometry()" ]
+                [ "    nameattrib = geo.pointAttribs()" ]
+                [ "    " ]
+                [ "    if nameattrib is None:" ]
+                [ "        return []" ]
+                [ "    " ]
+                [ "#    names = nameattrib.strings()" ]
+                [ "    menu = []" ]
+                [ "    for name in nameattrib:" ]
+                [ "        menu += [name.name()]" ]
+                [ "        menu += [name.name()]" ]
+                [ "except:" ]
+                [ "    return []" ]
+                [ "                " ]
+                [ "return menu" ]
+                language python
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "channel"
+            label   "Channel Scope"
+            type    string
+            default { "emit life emitrot[xyz] speed" }
+            menureplace {
+                [ "try:" ]
+                [ "    input = kwargs['node'].inputs()[0]" ]
+                [ "    geo = input.geometry()" ]
+                [ "    nameattrib = geo.pointAttribs()" ]
+                [ "    " ]
+                [ "    if nameattrib is None:" ]
+                [ "        return []" ]
+                [ "    " ]
+                [ "#    names = nameattrib.strings()" ]
+                [ "    menu = []" ]
+                [ "    for name in nameattrib:" ]
+                [ "        menu += [name.name()]" ]
+                [ "        menu += [name.name()]" ]
+                [ "except:" ]
+                [ "    return []" ]
+                [ "                " ]
+                [ "return menu" ]
+                language python
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+}

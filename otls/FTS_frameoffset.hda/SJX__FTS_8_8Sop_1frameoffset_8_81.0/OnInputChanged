@@ -1,0 +1,1 @@
+kwargs["node"].hdaModule().setEmitRange(kwargs["node"])

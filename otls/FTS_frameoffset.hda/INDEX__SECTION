@@ -1,0 +1,14 @@
+Operator:     SJX_FTS::frameoffset::1.0
+Label:        FTS FrameOffset
+Path:         oplib:/SJX_FTS::Sop/frameoffset::1.0?SJX_FTS::Sop/frameoffset::1.0
+Icon:         CHOP_shift
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Nov 12 18:04:24 2019
+
