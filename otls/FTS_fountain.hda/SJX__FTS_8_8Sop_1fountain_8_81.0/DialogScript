@@ -50,7 +50,7 @@
 
         parm {
             name    "emit"
-            label   "Emitter"
+            label   "Emit"
             type    integer
             default { "1" }
             range   { 0 240 }
@@ -110,19 +110,6 @@
         label   "Advanced option"
         hidewhentab "{ advanced == 0 }"
 
-        parm {
-            name    "emitype"
-            label   "Emit Type/vel/Dir"
-            type    integer
-            default { "0" }
-            menu {
-                "0" "Face Up Center (GE)"
-                "1" "Line Up Center (WF)"
-                "2" "Face Up Normal (TD)"
-                "3" "Line Center Normal (FN)"
-            }
-            range   { 0 10 }
-        }
         parm {
             name    "displace"
             label   "Displacement Radius"
@@ -200,13 +187,6 @@
                 type    float
                 default { "0.75" }
                 range   { 0! 1! }
-            }
-            parm {
-                name    "dir"
-                label   "dir"
-                type    integer
-                default { "0" }
-                range   { 0! 2! }
             }
         }
 
