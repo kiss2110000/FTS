@@ -1,0 +1,77 @@
+# Dialog script for SJX_FTS::blend::1.0 automatically generated
+
+{
+    name	SJX_FTS::blend::1.0
+    script	SJX_FTS::blend::1.0
+    label	"FTS Blend"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Source Fountain"
+    inputlabel	2	"Second Fountain"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "_"
+        label   "Blend Attribute"
+
+        parm {
+            name    "attribs"
+            label   "Attributes"
+            type    string
+            default { "*" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Blend To Second"
+
+        parm {
+            name    "frame"
+            label   "Blend Frame "
+            type    integer
+            default { "0" }
+            range   { 0 500 }
+        }
+        parm {
+            name    "offset"
+            label   "Offset Range"
+            type    integer
+            default { "0" }
+            range   { 0 50 }
+        }
+    }
+
+    parm {
+        name    "second"
+        label   "Enable Second"
+        type    toggle
+        default { "0" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "Blend To Source"
+        hidewhentab "{ second == 0 }"
+
+        parm {
+            name    "frame2"
+            label   "Blend Frame "
+            type    integer
+            default { "0" }
+            range   { 0 500 }
+        }
+        parm {
+            name    "offset2"
+            label   "Offset Range"
+            type    integer
+            default { "0" }
+            range   { 0 50 }
+        }
+    }
+
+}

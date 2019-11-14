@@ -1,0 +1,14 @@
+Operator:     SJX_FTS::blend::1.0
+Label:        FTS Blend
+Path:         oplib:/SJX_FTS::Sop/blend::1.0?SJX_FTS::Sop/blend::1.0
+Icon:         SOP_blendshapes-2.0
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Nov 14 21:49:43 2019
+
