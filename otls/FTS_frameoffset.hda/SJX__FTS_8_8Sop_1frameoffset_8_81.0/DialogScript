@@ -224,45 +224,10 @@
         label   "Attribute"
 
         parm {
-            name    "organize"
-            label   "Organize by Attribute"
-            type    string
-            default { "cluster" }
-            disablewhen "{ ninputs() > 1 }"
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
             name    "attribute"
             label   "Attribute Scope"
             type    string
-            default { "emit life emitrot speed" }
-            menureplace {
-                [ "try:" ]
-                [ "    input = kwargs['node'].inputs()[0]" ]
-                [ "    geo = input.geometry()" ]
-                [ "    nameattrib = geo.pointAttribs()" ]
-                [ "    " ]
-                [ "    if nameattrib is None:" ]
-                [ "        return []" ]
-                [ "    " ]
-                [ "#    names = nameattrib.strings()" ]
-                [ "    menu = []" ]
-                [ "    for name in nameattrib:" ]
-                [ "        menu += [name.name()]" ]
-                [ "        menu += [name.name()]" ]
-                [ "except:" ]
-                [ "    return []" ]
-                [ "                " ]
-                [ "return menu" ]
-                language python
-            }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "channel"
-            label   "Channel Scope"
-            type    string
-            default { "emit life emitrot[xyz] speed" }
+            default { "emit life rotz roty rotx speed" }
             menureplace {
                 [ "try:" ]
                 [ "    input = kwargs['node'].inputs()[0]" ]

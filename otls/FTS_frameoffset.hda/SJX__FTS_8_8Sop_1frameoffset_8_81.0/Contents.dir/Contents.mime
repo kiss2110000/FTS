@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.672342 0.856092
-connectornextid 2
+position -0.612202 -1.68275
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
-1 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-0 	FTs_fountain 0 1 "input1"
+0 	FTs_cluster_edit 1 1 "input1"
 }
 inputs
 {
-0 	FTs_fountain 0 1
+0 	FTs_cluster_edit 0 1
 }
 stat
 {
-  create 1573713306
-  modify 1573719551
+  create 1573780060
+  modify 1573780844
   author Administrator@SJX
   access 0777
 }
@@ -155,7 +155,7 @@ Content-Type: text/plain
 }
 {
   create 1573530027
-  modify 1573719126
+  modify 1573780064
   author Administrator@SJX
   access 0777
 }
@@ -178,7 +178,7 @@ Content-Type: text/plain
 }
 {
   create 1573548186
-  modify 1573719127
+  modify 1573780065
   author Administrator@SJX
   access 0777
 }
@@ -297,7 +297,7 @@ inputs
 stat
 {
   create 1554276827
-  modify 1573551521
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -735,7 +735,7 @@ scope2	[ 0	locks=0	autoscope=0 ]	(	*	)
 units2	[ 0	locks=0	autoscope=0 ]	(	"seconds"	)
 timeslice2	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	0	0	0	)
-offset	[ 0	locks=0 ]	(	[ offset	3 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset	50 ] 	)
 clamp	[ 8	locks=0 ]	(	[ clamp	0 ] 	)
 framex	[ 8	locks=0 ]	(	[ framex	1 ] 	)
 framey	[ 8	locks=0 ]	(	[ framey	100 ] 	)
@@ -743,7 +743,7 @@ range1	[ 8	locks=0 ]	(	[ range1	0 ] 	)
 rangestart	[ 8	locks=0 ]	(	[ rangestart	25 ] 	)
 range2	[ 8	locks=0 ]	(	[ range2	0 ] 	)
 rangeend	[ 8	locks=0 ]	(	[ rangeend	75 ] 	)
-clustertotal	[ 8	locks=0 ]	(	[ clustertotal	10 ] 	)
+clustertotal	[ 8	locks=0 ]	(	[ clustertotal	8 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -799,7 +799,7 @@ inputs
 stat
 {
   create 1573529414
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -907,7 +907,7 @@ inputs
 stat
 {
   create 1573539274
-  modify 1573551063
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -1187,8 +1187,8 @@ scope2	[ 0	locks=0	autoscope=0 ]	(	*	)
 units2	[ 0	locks=0	autoscope=0 ]	(	"seconds"	)
 timeslice2	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	0	0	0	)
-OffsetFrame	[ 8	locks=0 ]	(	[ OffsetFrame	3 ] 	)
-NumberPoints	[ 0	locks=0 ]	(	[ NumberPoints	10 ] 	)
+OffsetFrame	[ 8	locks=0 ]	(	[ OffsetFrame	50 ] 	)
+NumberPoints	[ 0	locks=0 ]	(	[ NumberPoints	30 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1247,7 +1247,7 @@ inputs
 stat
 {
   create 1573539274
-  modify 1573717227
+  modify 1573780414
   author Administrator@SJX
   access 0777
 }
@@ -1703,8 +1703,8 @@ scope2	[ 0	locks=0	autoscope=0 ]	(	*	)
 units2	[ 0	locks=0	autoscope=0 ]	(	"seconds"	)
 timeslice2	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	0	0	0	)
-OffsetFrame	[ 8	locks=0 ]	(	[ OffsetFrame	3 ] 	)
-NumberPoints	[ 0	locks=0 ]	(	[ NumberPoints	10 ] 	)
+OffsetFrame	[ 8	locks=0 ]	(	[ OffsetFrame	50 ] 	)
+NumberPoints	[ 0	locks=0 ]	(	[ NumberPoints	30 ] 	)
 clamp	[ 8	locks=0 ]	(	[ clamp	0 ] 	)
 framex	[ 0	locks=0 ]	(	[ framex	1 ] 	)
 rangestart	[ 8	locks=0 ]	(	[ rangestart	25 ] 	)
@@ -1712,7 +1712,7 @@ range1	[ 8	locks=0 ]	(	[ range1	0 ] 	)
 range2	[ 8	locks=0 ]	(	[ range2	0 ] 	)
 rangeend	[ 8	locks=0 ]	(	[ rangeend	75 ] 	)
 framey	[ 0	locks=0 ]	(	[ framey	100 ] 	)
-clustertotal	[ 8	locks=0 ]	(	[ clustertotal	10 ] 	)
+clustertotal	[ 8	locks=0 ]	(	[ clustertotal	8 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1767,7 +1767,7 @@ inputs
 stat
 {
   create 1515138596
-  modify 1573548698
+  modify 1573780808
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -1812,21 +1812,21 @@ Content-Type: text/plain
 
 {
 version 0.8
-stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 soppath	[ 0	locks=0 ]	(	../../To_chop	)
 group	[ 0	locks=0 ]	(	""	)
 method	[ 0	locks=0 ]	(	"animated"	)
-attribscope	[ 8	locks=0 ]	(	`chs(\"../../channel1/attscope\")`	)
-renamescope	[ 0	locks=0 ]	(	`chs(\"../../channel\")`	)
+attribscope	[ 8	locks=0 ]	(	`chs(\"../../attribute\")`	)
+renamescope	[ 0	locks=0 ]	(	`chs(\"../../attribute\")`	)
 filter	[ 0	locks=0 ]	(	""	)
 transpath	[ 0	locks=0 ]	(	""	)
-organize	[ 8	locks=0 ]	(	`chs(\"../../channel1/organize\")`	)
+organize	[ 8	locks=0 ]	(	""	)
 omethod	[ 0	locks=0 ]	(	"first"	)
 ovalue	[ 0	locks=0 ]	(	0	)
 pointnames	[ 0	locks=0 ]	(	""	)
 range	[ 0	locks=0 ]	(	"user"	)
 start	[ 8	locks=0 ]	(	[ start	1 ] 	)
-end	[ 8	locks=0 ]	(	[ end	120 ] 	)
+end	[ 8	locks=0 ]	(	[ end	500 ] 	)
 rate	[ 8	locks=0 ]	(	[ rate	25 ] 	)
 left	[ 0	locks=0 ]	(	"hold"	)
 right	[ 0	locks=0 ]	(	"hold"	)
@@ -1879,7 +1879,7 @@ Content-Type: text/plain
 comment ""
 position -2.1875 -1.87897
 connectornextid 2
-flags =  lock off model on template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio on export off
+flags =  lock off model on template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio on export off
 outputsNamed3
 {
 1 "output1"
@@ -1895,7 +1895,7 @@ inputs
 stat
 {
   create 1524529771
-  modify 1573719094
+  modify 1573780354
   author Administrator@SJX
   access 0777
 }
@@ -1989,7 +1989,7 @@ inputs
 stat
 {
   create 1534482555
-  modify 1573548338
+  modify 1573780391
   author Administrator@SJX
   access 0777
 }
@@ -2072,7 +2072,7 @@ inputs
 stat
 {
   create 1515138596
-  modify 1573548698
+  modify 1573780803
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -2116,15 +2116,15 @@ Content-Type: text/plain
 
 {
 version 0.8
-stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 soppath	[ 0	locks=0 ]	(	../../To_chop	)
 group	[ 0	locks=0 ]	(	""	)
 method	[ 0	locks=0 ]	(	"animated"	)
-attribscope	[ 0	locks=0 ]	(	`chs(\"../../channel1/attscope\")`	)
-renamescope	[ 0	locks=0 ]	(	`chs(\"../../channel\")`	)
+attribscope	[ 0	locks=0 ]	(	`chs(\"../../attribute\")`	)
+renamescope	[ 0	locks=0 ]	(	`chs(\"../../attribute\")`	)
 filter	[ 0	locks=0 ]	(	""	)
 transpath	[ 0	locks=0 ]	(	""	)
-organize	[ 8	locks=0 ]	(	`chs(\"../../channel1/organize\")`	)
+organize	[ 8	locks=0 ]	(	""	)
 omethod	[ 0	locks=0 ]	(	"first"	)
 ovalue	[ 0	locks=0 ]	(	0	)
 pointnames	[ 0	locks=0 ]	(	""	)
@@ -2201,7 +2201,7 @@ inputs
 stat
 {
   create 1547171139
-  modify 1573548698
+  modify 1573780391
   author Administrator@SJX
   access 0777
 }
@@ -2376,7 +2376,7 @@ inputs
 stat
 {
   create 1553683061
-  modify 1573717230
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -2469,7 +2469,7 @@ inputs
 stat
 {
   create 1553683127
-  modify 1573717230
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -2560,7 +2560,7 @@ inputs
 stat
 {
   create 1553683145
-  modify 1573717230
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -2648,7 +2648,7 @@ inputs
 stat
 {
   create 1553683061
-  modify 1573717230
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -2830,7 +2830,7 @@ inputs
 stat
 {
   create 1573527834
-  modify 1573550794
+  modify 1573780399
   author Administrator@SJX
   access 0777
 }
@@ -2940,7 +2940,7 @@ inputs
 stat
 {
   create 1573529499
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3076,7 +3076,7 @@ inputs
 stat
 {
   create 1573529534
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3174,7 +3174,7 @@ inputs
 stat
 {
   create 1573543029
-  modify 1573719551
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3274,7 +3274,7 @@ inputs
 stat
 {
   create 1573527834
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3392,7 +3392,7 @@ inputs
 stat
 {
   create 1573548399
-  modify 1573717227
+  modify 1573780414
   author Administrator@SJX
   access 0777
 }
@@ -3479,7 +3479,7 @@ inputs
 stat
 {
   create 1573713451
-  modify 1573717230
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3547,7 +3547,7 @@ Content-Disposition: attachment; filename="hdaroot/chopnet1/delete4.def"
 Content-Type: text/plain
 
 comment ""
-position 4.66869 4.06335
+position 4.34038 -2.95433
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -3555,16 +3555,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	delete3 1 1 "input1"
+0 	Out 1 1 "input1"
 }
 inputs
 {
-0 	delete3 0 1
+0 	Out 0 1
 }
 stat
 {
   create 1573548399
-  modify 1573717227
+  modify 1573780640
   author Administrator@SJX
   access 0777
 }
@@ -3580,9 +3580,9 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
-discard	[ 0	locks=0 ]	(	"scoped"	)
+discard	[ 0	locks=0 ]	(	"nonscoped"	)
 select	[ 0	locks=0 ]	(	"byname"	)
-delscope	[ 0	locks=0 ]	(	emitr*	)
+delscope	[ 0	locks=0 ]	(	emitrotz*	)
 selnumbers	[ 0	locks=0 ]	(	0-100:2	)
 chanvalue	[ 0	locks=0 ]	(	"off"	)
 selrange	[ 0	locks=0 ]	(	-1	1	)
@@ -3653,7 +3653,7 @@ inputs
 stat
 {
   create 1573717245
-  modify 1573719074
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3748,7 +3748,7 @@ inputs
 stat
 {
   create 1573717258
-  modify 1573717556
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3826,7 +3826,7 @@ inputs
 stat
 {
   create 1573719031
-  modify 1573719089
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -3924,7 +3924,7 @@ inputs
 stat
 {
   create 1573717245
-  modify 1573719069
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -4059,7 +4059,7 @@ inputs
 stat
 {
   create 1515139087
-  modify 1573548698
+  modify 1573780766
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -4077,9 +4077,9 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 choppath	[ 0	locks=0 ]	(	../chopnet1/Out	)
 method	[ 0	locks=0 ]	(	"animated"	)
-chanscope	[ 0	locks=0 ]	(	`chs(\"../channel\")`	)
+chanscope	[ 0	locks=0 ]	(	`chs(\"../attribute\")`	)
 attscope	[ 8	locks=0 ]	(	`chs(\"../attribute\")`	)
-organize	[ 0	locks=0 ]	(	`chs(\"../organize\")`	)
+organize	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4246,7 +4246,7 @@ inputs
 stat
 {
   create 1534678564
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -4321,7 +4321,7 @@ inputs
 stat
 {
   create 1553669243
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -4396,7 +4396,7 @@ inputs
 stat
 {
   create 1553669619
-  modify 1573548698
+  modify 1573780060
   author Administrator@SJX
   access 0777
 }
@@ -4574,7 +4574,7 @@ inputs
 stat
 {
   create 1573528128
-  modify 1573548698
+  modify 1573780161
   author Administrator@SJX
   access 0777
 }
