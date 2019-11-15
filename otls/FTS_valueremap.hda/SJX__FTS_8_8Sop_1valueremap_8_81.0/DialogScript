@@ -1,0 +1,166 @@
+# Dialog script for SJX_FTS::valueremap::1.0 automatically generated
+
+{
+    name	SJX_FTS::valueremap::1.0
+    script	SJX_FTS::valueremap::1.0
+    label	"FTS Value Remap"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Fountain
+    inputlabel	2	Cluster
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder3"
+        label   "Attribute"
+
+        parm {
+            name    "attr"
+            label   "attribute"
+            type    string
+            default { "speed" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Remap value"
+
+        parm {
+            name    "input"
+            label   "Input  Min/Max"
+            type    vector2
+            size    2
+            default { "0" "1" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "output"
+            label   "Output  Min/Max"
+            type    vector2
+            size    2
+            default { "0" "1" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "reverse"
+            label   "Reverse Percent"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "closed"
+            label   "Closed"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "ramp"
+            label   "Enable Ramp"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "precent"
+            label   "Precent Ramp"
+            type    ramp_flt
+            default { "2" }
+            hidewhen "{ ramp == 0 }"
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampbasisdefault" "catmull-rom" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
+    groupsimple {
+        name    "folder4"
+        label   "Blend Source"
+
+        parm {
+            name    "first"
+            label   "Enable First"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Blend To Second"
+            hidewhen "{ first == 0 }"
+
+            parm {
+                name    "frame"
+                label   "Blend Frame "
+                type    integer
+                default { "0" }
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset2"
+                label   "Offset Range"
+                type    integer
+                default { "0" }
+                range   { 0 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "second"
+            label   "Enable Second"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder1"
+            label   "Blend To Source"
+            hidewhen "{ second == 0 }"
+
+            parm {
+                name    "frame2"
+                label   "Blend Frame "
+                type    integer
+                default { "0" }
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset3"
+                label   "Offset Range"
+                type    integer
+                default { "0" }
+                range   { 0 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+}

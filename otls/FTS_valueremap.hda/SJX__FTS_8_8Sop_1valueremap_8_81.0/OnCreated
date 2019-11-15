@@ -1,0 +1,4 @@
+node = kwargs['node']
+node.setColor(hou.Color((0.8, 1, 0.5)))
+node.setName('FTs_valueremap', True)
+#node.setUserData("nodeshape","pointy")

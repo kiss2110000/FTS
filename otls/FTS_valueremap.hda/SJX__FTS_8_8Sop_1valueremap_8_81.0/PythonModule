@@ -1,0 +1,17 @@
+def checkStartFrame(node):
+    parmx = node.evalParm("startx")
+    parmy = node.evalParm("starty")
+    if parmx>parmy:
+        node.setParms({"starty":parmx})
+    if parmy<parmx:
+        node.setParms({"startx":parmy})
+       
+def checkEndFrame(node):
+    parmx = node.evalParm("endx")
+    parmy = node.evalParm("endy")
+    if parmy<parmx:
+        node.setParms({"endy":parmx})
+    if parmx>parmy:
+        node.setParms({"endx":parmy})
+
+        
