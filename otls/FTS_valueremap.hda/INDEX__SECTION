@@ -1,0 +1,14 @@
+Operator:     SJX_FTS::valueremap::1.0
+Label:        FTS Value Remap
+Path:         oplib:/SJX_FTS::Sop/valueremap::1.0?SJX_FTS::Sop/valueremap::1.0
+Icon:         SOP_attribute
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Nov 15 15:03:26 2019
+

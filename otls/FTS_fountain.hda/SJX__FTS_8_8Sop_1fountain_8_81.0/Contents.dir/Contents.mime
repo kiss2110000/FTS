@@ -32,8 +32,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.262981 3.07608
-connectornextid 1
+position -2.32153 0.751913
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
@@ -41,15 +41,17 @@ outputsNamed3
 }
 inputsNamed3
 {
+1 	circle1 0 1 "input1"
 }
 inputs
 {
+0 	circle1 0 1
 }
 stat
 {
-  create 1573208301
-  modify 1573209658
-  author Administrator@SJX
+  create 1573732905
+  modify 1573745752
+  author KISS@KISS-PC
   access 0777
 }
 color UT_Color RGB 0.6 0.8 1 
@@ -110,7 +112,7 @@ inputs
 stat
 {
   create 1514862367
-  modify 1573203942
+  modify 1573745439
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -517,7 +519,6 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"// 水型名称
 s@ft_type = chs(\"../type\");
-i@emitype = chi(\"../emitype\");
 // 喷泉发射和范围
 //u@ft_se = chu(\"se\");
 u@ft_se = set(ch(\"sex\"),ch(\"sey\"));
@@ -533,7 +534,9 @@ f@life = chf(\"life\");
 f@lifevar = chf(\"lifevar\");
 
 // 添加属性 旋转、速度值
-v@emitrot = chv(\"rot\");
+f@rotx = chv(\"rotx\");
+f@roty = chv(\"roty\");
+f@rotz = chv(\"rotz\");
 f@speed = chf(\"speed\");
 v@speedvar = chv(\"speedvar\");
 // 重力
@@ -560,12 +563,12 @@ sepparm	[ 0	locks=0 ]	(	)
 emit	[ 0	locks=0 ]	(	[ emit	1 ] 	)
 emitradius	[ 0	locks=0 ]	(	[ emitradius	0.025000000000000001 ] 	)
 sepparm3	[ 0	locks=0 ]	(	)
-birthrate	[ 0	locks=0 ]	(	[ birthrate	3000 ] 	)
-life	[ 0	locks=0 ]	(	[ life	100 ] 	)
+birthrate	[ 0	locks=0 ]	(	[ birthrate	7500 ] 	)
+life	[ 0	locks=0 ]	(	[ life	35 ] 	)
 lifevar	[ 0	locks=0 ]	(	[ lifevar	5 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
-rot	[ 0	locks=0 ]	(	[ rotx	0 ] 	[ roty	0 ] 	[ rotz	-28.190778623577252 ] 	)
-speed	[ 0	locks=0 ]	(	[ speed	25 ] 	)
+rot	[ 0	locks=0 ]	(	[ rotx	0 ] 	[ roty	270 ] 	[ rotz	-2.2043642384652355e-14 ] 	)
+speed	[ 0	locks=0 ]	(	[ speed	15 ] 	)
 speedvar	[ 0	locks=0 ]	(	[ speedvarx	0.5 ] 	[ speedvary	0.5 ] 	[ speedvarz	0.5 ] 	)
 sepparm4	[ 0	locks=0 ]	(	)
 gravity	[ 0	locks=0 ]	(	[ gravity	-9.8066499999999994 ] 	)
@@ -614,7 +617,7 @@ inputs
 stat
 {
   create 1514862205
-  modify 1573203942
+  modify 1573732906
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -710,7 +713,7 @@ inputs
 stat
 {
   create 1525341241
-  modify 1573203942
+  modify 1573732906
   author Administrator@SJX
   access 0777
 }
@@ -1029,7 +1032,7 @@ inputs
 stat
 {
   create 1514862367
-  modify 1573203942
+  modify 1573732906
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -1316,7 +1319,7 @@ inputs
 stat
 {
   create 1552968597
-  modify 1573203942
+  modify 1573745761
   author Administrator@SJX
   access 0777
 }
@@ -1543,12 +1546,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../per\") }
     }
-    channel dir {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../dir\") }
-    }
     channel displacement {
       lefttype = extend
       righttype = extend
@@ -1573,7 +1570,6 @@ snippet	[ 0	locks=0 ]	(	"//eight flower set
 i@emitnum = chi(\"num\");
 f@emitdis =  chf(\"dis\");
 f@emitper = chf(\"per\");
-i@emitdir = chi(\"dir\");
 
 @P+=set(0,chf(\"ef_radius\")*chi(\"displacement\"),0);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -1589,10 +1585,10 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-dis	[ 8	locks=0 ]	(	[ dis	0.29999999999999999 ] 	)
-per	[ 0	locks=0 ]	(	[ per	0.75 ] 	)
-num	[ 0	locks=0 ]	(	[ num	8 ] 	)
-dir	[ 0	locks=0 ]	(	[ dir	0 ] 	)
+dis	[ 8	locks=0 ]	(	[ dis	0 ] 	)
+per	[ 0	locks=0 ]	(	[ per	0.14999999999999999 ] 	)
+num	[ 0	locks=0 ]	(	[ num	1 ] 	)
+dir	[ 0	locks=0 ]	(	1	)
 displacement	[ 8	locks=0 ]	(	[ displacement	1 ] 	)
 }
 
@@ -1638,7 +1634,7 @@ inputs
 stat
 {
   create 1514862205
-  modify 1573209845
+  modify 1573732906
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -1768,7 +1764,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -1805,7 +1801,7 @@ inputs
 stat
 {
   create 1520756036
-  modify 1573203942
+  modify 1573743836
   author Administrator@PCOS-1703181014
   access 0777
 }
@@ -1833,7 +1829,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1843,7 +1839,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -1903,7 +1899,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -1940,7 +1936,7 @@ inputs
 stat
 {
   create 1525341316
-  modify 1573203942
+  modify 1573732906
   author Administrator@SJX
   access 0777
 }
@@ -1978,7 +1974,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -2044,7 +2040,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -2142,7 +2138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -2179,7 +2175,7 @@ inputs
 stat
 {
   create 1546910217
-  modify 1573203942
+  modify 1573732906
   author Administrator@SJX
   access 0777
 }
@@ -2217,7 +2213,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -2254,7 +2250,7 @@ inputs
 stat
 {
   create 1552968576
-  modify 1573203942
+  modify 1573732906
   author Administrator@SJX
   access 0777
 }
@@ -2282,7 +2278,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2292,7 +2288,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
@@ -2370,7 +2366,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.391"
+		"value":"17.5.173"
 	}
 }
 
